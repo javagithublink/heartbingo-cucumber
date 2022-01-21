@@ -3,7 +3,6 @@ package uk.co.heartbingo.pages;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -28,10 +27,6 @@ public class HomePage extends Utility {
     @FindBy(xpath = "//a[normalize-space()='Log In']")
     WebElement loginButton;
 
-    @CacheLookup
-    @FindBy(xpath = "//div[@class='bvs-site-logo bvs-site-logo_scrolling']")
-    WebElement logoImage;
-
 
     public void clickOnLoginButton() {
         log.info("entering random email : "+"<br>");
@@ -42,24 +37,18 @@ public class HomePage extends Utility {
     public void verifyUserIsOnHomePage() {
 
         String actual = driver.getCurrentUrl();
-        log.info("entering random email : "+"<br>");
+        log.info("Getting current URL : "+actual+"<br>");
         String expected = "heartbingo";
         Assert.assertTrue(actual.contains(expected));
 
     }
-
-    public void verifyUserCanSeeHeartBingoLogo() {
-        Boolean p = (Boolean) ((JavascriptExecutor) driver).executeScript("return arguments[0].complete " + "&& typeof arguments[0].naturalWidth != \"undefined\" " + "&& arguments[0].naturalWidth > 0", logoImage);
-        Assert.assertTrue(p);
-
-    }
-
 
     public void clickOnMenuItems(String item) {
 
         for (WebElement menuItem : menuList) {
 
             if(menuItem.getText().equalsIgnoreCase(item)){
+                log.info("Clicking on Top menu label : "+item+"<br>");
                 menuItem.click();
                 break;
             }
@@ -79,26 +68,31 @@ public class HomePage extends Utility {
 
                     case "Bingo":
                         pmWaitWithThreadSleep(10);
+                        log.info("Getting URL for : "+item+"<br>");
                         Assert.assertTrue(driver.getCurrentUrl().contains(url));
                         break;
 
                     case "Jackpots":
                         pmWaitWithThreadSleep(10);
+                        log.info("Getting URL for : "+item+"<br>");
                         Assert.assertTrue(driver.getCurrentUrl().contains(url));
                         break;
 
                     case "Slots":
                         pmWaitWithThreadSleep(10);
+                        log.info("Getting URL for : "+item+"<br>");
                         Assert.assertTrue(driver.getCurrentUrl().contains(url));
                         break;
 
                     case "Casino":
                         pmWaitWithThreadSleep(10);
+                        log.info("Getting URL for : "+item+"<br>");
                         Assert.assertTrue(driver.getCurrentUrl().contains(url));
                         break;
 
                     case "Promos":
                         pmWaitWithThreadSleep(10);
+                        log.info("Getting URL for : "+item+"<br>");
                         Assert.assertTrue(driver.getCurrentUrl().contains(url));
                         break;
                 }

@@ -17,8 +17,7 @@ Feature: Check homepage functionality
       | jj@gmail.com | Abc123$  |
       | 123456       | 123456   |
 
-
-  Scenario Outline: User can click on top menu items
+ Scenario Outline: User can click on top menu items
     When            User clicks on "<menuItem>" item
     Then            User is able to navigate to "<url>" for "<menuItem>"
     Examples:

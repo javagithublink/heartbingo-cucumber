@@ -11,11 +11,11 @@ public class HomePageSteps {
         new HomePage().verifyUserIsOnHomePage();
     }
 
-    @Then("^User can successfully reach to homepage$")
-    public void userCanSuccessfullyReachToHomepage() {
-        new HomePage().verifyUserCanSeeHeartBingoLogo();
-    }
 
+    @When("^User clicks on log in button from top right corner of the page$")
+    public void userClicksOnLogInButtonFromTopRightCornerOfThePage() {
+        new HomePage().clickOnLoginButton();
+    }
 
 
     @When("^User clicks on \"([^\"]*)\" item$")
