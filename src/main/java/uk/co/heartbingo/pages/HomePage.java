@@ -1,5 +1,7 @@
 package uk.co.heartbingo.pages;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -16,6 +18,8 @@ public class HomePage extends Utility {
         PageFactory.initElements(driver, this);
     }
 
+    private static final Logger log = LogManager.getLogger(HomePage.class.getName());
+
     @CacheLookup
     @FindBy(xpath = "//ul[@class='bvs-carousel__slider']//li[@class='section site-main-nav__item']//a")
     List<WebElement> menuList;
@@ -30,7 +34,7 @@ public class HomePage extends Utility {
 
 
     public void clickOnLoginButton() {
-        pmWaitWithThreadSleep(30);
+        log.info("entering random email : "+"<br>");
         pmClickOnElement(loginButton);
 
     }
@@ -38,6 +42,7 @@ public class HomePage extends Utility {
     public void verifyUserIsOnHomePage() {
 
         String actual = driver.getCurrentUrl();
+        log.info("entering random email : "+"<br>");
         String expected = "heartbingo";
         Assert.assertTrue(actual.contains(expected));
 
