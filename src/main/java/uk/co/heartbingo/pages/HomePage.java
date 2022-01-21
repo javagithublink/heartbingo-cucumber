@@ -29,7 +29,7 @@ public class HomePage extends Utility {
 
 
     public void clickOnLoginButton() {
-        log.info("entering random email : "+"<br>");
+        log.info("Clicking on Login button");
         pmClickOnElement(loginButton);
 
     }

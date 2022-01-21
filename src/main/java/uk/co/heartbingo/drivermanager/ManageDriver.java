@@ -29,16 +29,16 @@ public class ManageDriver {
 
     public void selectBrowser(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
-            log.info("Initiating "+ browser +"browser");
+            log.info("Initiating "+ browser + "browser");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
 
         } else if (browser.equalsIgnoreCase("firefox")) {
-            log.info("Initiating "+ browser +"browser");
+            log.info("Initiating "+ browser + "browser");
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         } else if (browser.equalsIgnoreCase("edge")) {
-            log.info("Initiating "+ browser +"browser");
+            log.info("Initiating "+ browser + "browser");
             WebDriverManager.edgedriver().setup();
            driver = new EdgeDriver();
         } else {
