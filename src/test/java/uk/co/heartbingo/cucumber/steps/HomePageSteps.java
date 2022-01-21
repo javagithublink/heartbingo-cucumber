@@ -1,0 +1,30 @@
+package uk.co.heartbingo.cucumber.steps;
+
+import cucumber.api.java.en.Given;
+import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
+import uk.co.heartbingo.pages.HomePage;
+
+public class HomePageSteps {
+    @Given("^User enters website URL on browser$")
+    public void userEntersWebsiteURLOnBrowser() {
+        new HomePage().verifyUserIsOnHomePage();
+    }
+
+    @Then("^User can successfully reach to homepage$")
+    public void userCanSuccessfullyReachToHomepage() {
+        new HomePage().verifyUserCanSeeHeartBingoLogo();
+    }
+
+
+
+    @When("^User clicks on \"([^\"]*)\" item$")
+    public void userClicksOnItem(String item) {
+        new HomePage().clickOnMenuItems(item);
+    }
+
+    @Then("^User is able to navigate to \"([^\"]*)\" for \"([^\"]*)\"$")
+    public void userIsAbleToNavigateToFor(String item, String url)  {
+        new HomePage().verifyPageUrl(item,url);
+    }
+}
