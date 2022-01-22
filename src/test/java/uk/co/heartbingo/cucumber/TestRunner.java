@@ -7,6 +7,13 @@ import cucumber.api.junit.Cucumber;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
+/**
+ * @RunWith annotation tells JUnit that tests should run using
+ * Cucumber class present in 'Cucumber. api. junit' package
+ * The @CucumberOptions can be used to provide additional configuration to the runner.
+ */
+
+
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/resources/featurefile",
@@ -19,6 +26,7 @@ public class TestRunner {
 
     @AfterClass
     public static void setUp() {
+        //Extent report setup method
         String projectPath = System.getProperty("user.dir");
         String reportConfigPath = projectPath + "/src/test/java/resources/extentreport/extent-config.xml";
         Reporter.loadXMLConfig(reportConfigPath);

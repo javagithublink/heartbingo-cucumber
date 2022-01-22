@@ -12,11 +12,11 @@ import uk.co.heartbingo.utility.Utility;
 import java.util.List;
 
 public class HomePage extends Utility {
-
+    // constructor used to initialise web elements with @FindBy annotation to this page
     public HomePage() {
         PageFactory.initElements(driver, this);
     }
-
+    //logger defined to print logs
     private static final Logger log = LogManager.getLogger(HomePage.class.getName());
 
     @CacheLookup
@@ -52,7 +52,6 @@ public class HomePage extends Utility {
                 menuItem.click();
                 break;
             }
-
 
         }
 

@@ -8,7 +8,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.PageFactory;
 import uk.co.heartbingo.propertyreader.PropertyReader;
 
 import java.time.Duration;
@@ -16,23 +15,24 @@ import java.time.Duration;
 
 public class ManageDriver {
 
+    //variable declaration
     public static WebDriver driver;
     public String baseUrl = PropertyReader.getInstance().getProperty("baseUrl");
     private static final Logger log = LogManager.getLogger(ManageDriver.class.getName());
 
+    //constructor to initialise and configure log4j
     public ManageDriver() {
-        PageFactory.initElements(driver, this);
+        //PageFactory.initElements(driver, this);
         PropertyConfigurator.configure(System.getProperty("user.dir")+"/src/test/java/resources/propertiesfile/log4j2.properties");
     }
 
 
-
+    //this method will select browser as per requirement
     public void selectBrowser(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             log.info("Initiating "+ browser + "browser");
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
-
         } else if (browser.equalsIgnoreCase("firefox")) {
             log.info("Initiating "+ browser + "browser");
             WebDriverManager.firefoxdriver().setup();
